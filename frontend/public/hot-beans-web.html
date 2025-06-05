@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot Beans Web - Join Our Team</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #000000, #1a1a1a, #000000);
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #FFD700;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #B8860B;
+        }
+
+        /* Glass card effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 215, 0, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(255, 215, 0, 0.15);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #FFD700;
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1513470270416-d3ff6f16b22f') center/cover;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.5), rgba(255,215,0,0.2));
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            position: relative;
+            z-index: 10;
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #FFD700, #FFED4E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 2rem;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: #d1d5db;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #FFD700, #FFED4E);
+            color: black;
+            font-weight: bold;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Section styling */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #FFD700, #FFED4E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* Grid layouts */
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        /* Cards */
+        .card {
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card-title {
+            color: #FFD700;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .card-text {
+            color: #d1d5db;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        /* Team profiles */
+        .team-member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #FFD700, #FFED4E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 1.5rem;
+        }
+
+        .member-info h3 {
+            color: #FFD700;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-role {
+            color: #9ca3af;
+        }
+
+        /* Skills tags */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.1));
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            color: #FFD700;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Job cards */
+        .job-card {
+            position: relative;
+        }
+
+        .popular-badge {
+            background: #FFD700;
+            color: black;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        .salary {
+            color: #FFD700;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        .requirements {
+            margin: 1.5rem 0;
+        }
+
+        .requirements h4 {
+            color: #FFD700;
+            margin-bottom: 0.8rem;
+        }
+
+        .requirements ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .requirements li {
+            color: #d1d5db;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .requirements li::before {
+            content: '•';
+            color: #FFD700;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Form styling */
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-label {
+            color: #FFD700;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input {
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #FFD700;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #FFD700, #FFED4E);
+            color: black;
+            font-weight: bold;
+            padding: 1rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Course links */
+        .course-link {
+            color: #FFD700;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .course-link:hover {
+            color: #FFED4E;
+        }
+
+        /* Footer */
+        .footer {
+            background: black;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #FFD700;
+        }
+
+        .credit {
+            color: #FFD700;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* Chatbox */
+        .chatbox-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+        }
+
+        .chatbox {
+            width: 350px;
+            height: 400px;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            display: none;
+            flex-direction: column;
+            margin-bottom: 1rem;
+        }
+
+        .chatbox.active {
+            display: flex;
+        }
+
+        .chat-header {
+            background: #FFD700;
+            color: black;
+            padding: 1rem;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: black;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .message {
+            padding: 0.8rem;
+            border-radius: 12px;
+            max-width: 80%;
+        }
+
+        .message.bot {
+            background: #374151;
+            color: white;
+            align-self: flex-start;
+        }
+
+        .message.user {
+            background: #FFD700;
+            color: black;
+            align-self: flex-end;
+        }
+
+        .chat-input-container {
+            padding: 1rem;
+            border-top: 1px solid #374151;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 0.8rem;
+            background: #374151;
+            border: 1px solid #4b5563;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: #FFD700;
+        }
+
+        .send-btn {
+            padding: 0.8rem 1rem;
+            background: #FFD700;
+            color: black;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .chat-toggle {
+            width: 60px;
+            height: 60px;
+            background: #FFD700;
+            color: black;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .chat-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+            }
+            50% {
+                box-shadow: 0 8px 30px rgba(255, 215, 0, 0.6);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .chatbox {
+                width: 300px;
+                right: 1rem;
+            }
+
+            .team-member {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .avatar {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Hot Beans Web</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#team" class="nav-link">Team</a></li>
+                <li><a href="#jobs" class="nav-link">Jobs</a></li>
+                <li><a href="#apply" class="nav-link">Apply</a></li>
+                <li><a href="#courses" class="nav-link">Courses</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Hot Beans Web</h1>
+            <h2 class="hero-subtitle">Join the Future of Web Development</h2>
+            <p class="hero-description">
+                Launch your career with our dynamic team. We're recruiting passionate web developers ready to make their mark.
+            </p>
+            <button class="cta-button" onclick="scrollToSection('apply')">Start Your Journey</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="grid grid-2">
+            <div class="glass-card card">
+                <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">About Hot Beans Web</h2>
+                <p class="card-text">
+                    Hot Beans Web is a cutting-edge web development company dedicated to creating exceptional digital experiences. 
+                    We specialize in modern web technologies and pride ourselves on fostering the next generation of talented developers.
+                </p>
+                <p class="card-text">
+                    Our mission is to bridge the gap between education and industry, providing real-world experience and mentorship 
+                    to aspiring web developers while delivering outstanding results for our clients.
+                </p>
+                <div class="grid grid-3" style="margin-top: 2rem;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; font-weight: bold; color: #FFD700; margin-bottom: 0.5rem;">50+</div>
+                        <div style="color: #9ca3af;">Projects Delivered</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; font-weight: bold; color: #FFD700; margin-bottom: 0.5rem;">15+</div>
+                        <div style="color: #9ca3af;">Team Members</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; font-weight: bold; color: #FFD700; margin-bottom: 0.5rem;">3</div>
+                        <div style="color: #9ca3af;">Years Strong</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <img src="https://images.pexels.com/photos/2749495/pexels-photo-2749495.jpeg" 
+                     alt="Professional workspace" 
+                     style="width: 100%; height: 400px; object-fit: cover; border-radius: 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section" style="background: linear-gradient(135deg, rgba(25,25,25,0.5), rgba(0,0,0,0.5));">
+        <h2 class="section-title">Meet Our Trainee Developers</h2>
+        <div class="grid grid-2">
+            <!-- Patel Khan -->
+            <div class="glass-card card">
+                <div class="team-member">
+                    <div class="avatar">PK</div>
+                    <div class="member-info">
+                        <h3>Patel Khan</h3>
+                        <div class="member-role">Junior Frontend Developer</div>
+                    </div>
+                </div>
+                <p class="card-text">
+                    "Joining Hot Beans Web has been an incredible journey. The mentorship and real-world projects have 
+                    accelerated my learning beyond what I thought possible. I'm working with React, Node.js, and modern 
+                    design frameworks daily."
+                </p>
+                <div class="skills">
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">Tailwind</span>
+                </div>
+            </div>
+
+            <!-- Abdina Abdul -->
+            <div class="glass-card card">
+                <div class="team-member">
+                    <div class="avatar">AA</div>
+                    <div class="member-info">
+                        <h3>Abdina Abdul</h3>
+                        <div class="member-role">Full-Stack Developer Trainee</div>
+                    </div>
+                </div>
+                <p class="card-text">
+                    "The collaborative environment at Hot Beans Web is amazing. I'm constantly learning from senior developers 
+                    while contributing to meaningful projects. The transition from bootcamp to professional development has been seamless."
+                </p>
+                <div class="skills">
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">Express</span>
+                    <span class="skill-tag">Vue.js</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section id="jobs" class="section">
+        <h2 class="section-title">Open Positions</h2>
+        <div class="grid grid-3">
+            <!-- Junior Web Developer -->
+            <div class="glass-card card job-card">
+                <h3 class="card-title">Junior Web Developer</h3>
+                <p class="card-text">Perfect for recent graduates ready to start their professional journey.</p>
+                <div class="requirements">
+                    <h4>Requirements:</h4>
+                    <ul>
+                        <li>HTML5, CSS3, JavaScript fundamentals</li>
+                        <li>Basic understanding of React or Vue.js</li>
+                        <li>Portfolio with 2-3 projects</li>
+                        <li>Eagerness to learn and grow</li>
+                    </ul>
+                </div>
+                <div class="salary">£25,000 - £30,000</div>
+            </div>
+
+            <!-- Frontend Developer -->
+            <div class="glass-card card job-card" style="border-color: #FFD700;">
+                <div class="popular-badge">POPULAR</div>
+                <h3 class="card-title">Frontend Developer</h3>
+                <p class="card-text">For developers with some experience ready to take the next step.</p>
+                <div class="requirements">
+                    <h4>Requirements:</h4>
+                    <ul>
+                        <li>1+ years experience with React/Vue/Angular</li>
+                        <li>Proficiency in modern CSS frameworks</li>
+                        <li>Experience with Git and version control</li>
+                        <li>Understanding of responsive design</li>
+                    </ul>
+                </div>
+                <div class="salary">£30,000 - £40,000</div>
+            </div>
+
+            <!-- Full-Stack Developer -->
+            <div class="glass-card card job-card">
+                <h3 class="card-title">Full-Stack Developer</h3>
+                <p class="card-text">For experienced developers ready to handle end-to-end development.</p>
+                <div class="requirements">
+                    <h4>Requirements:</h4>
+                    <ul>
+                        <li>Frontend + Backend experience</li>
+                        <li>Node.js, Python, or similar</li>
+                        <li>Database management (SQL/NoSQL)</li>
+                        <li>API development experience</li>
+                    </ul>
+                </div>
+                <div class="salary">£40,000 - £55,000</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section id="apply" class="section" style="background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(25,25,25,0.7));">
+        <h2 class="section-title">Apply Now</h2>
+        <div class="form-container">
+            <div class="glass-card card">
+                <form onsubmit="handleFormSubmit(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">Full Name *</label>
+                            <input type="text" class="form-input" required name="name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email Address *</label>
+                            <input type="email" class="form-input" required name="email">
+                        </div>
+                    </div>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-input" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Portfolio/GitHub URL</label>
+                            <input type="url" class="form-input" name="portfolio">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label class="form-label">Experience Level</label>
+                        <select class="form-input" name="experience">
+                            <option value="">Select your experience level</option>
+                            <option value="beginner">Beginner (0-1 years)</option>
+                            <option value="intermediate">Intermediate (1-3 years)</option>
+                            <option value="experienced">Experienced (3+ years)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label class="form-label">Technical Skills</label>
+                        <input type="text" class="form-input" name="skills" 
+                               placeholder="e.g., HTML, CSS, JavaScript, React, Node.js">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label class="form-label">Why do you want to join Hot Beans Web?</label>
+                        <textarea class="form-input form-textarea" name="message"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="section">
+        <h2 class="section-title">Recommended Learning Resources</h2>
+        <div class="grid grid-3">
+            <div class="glass-card card">
+                <h3 class="card-title">FreeCodeCamp</h3>
+                <p class="card-text">Free comprehensive web development curriculum</p>
+                <a href="https://freecodecamp.org" target="_blank" class="course-link">Learn More →</a>
+            </div>
+            
+            <div class="glass-card card">
+                <h3 class="card-title">The Odin Project</h3>
+                <p class="card-text">Open source curriculum for learning web development</p>
+                <a href="https://theodinproject.com" target="_blank" class="course-link">Learn More →</a>
+            </div>
+
+            <div class="glass-card card">
+                <h3 class="card-title">Codecademy</h3>
+                <p class="card-text">Interactive coding lessons and projects</p>
+                <a href="https://codecademy.com" target="_blank" class="course-link">Learn More →</a>
+            </div>
+
+            <div class="glass-card card">
+                <h3 class="card-title">MDN Web Docs</h3>
+                <p class="card-text">Complete reference for web technologies</p>
+                <a href="https://developer.mozilla.org" target="_blank" class="course-link">Learn More →</a>
+            </div>
+
+            <div class="glass-card card">
+                <h3 class="card-title">Coursera</h3>
+                <p class="card-text">University-level courses in computer science</p>
+                <a href="https://coursera.org" target="_blank" class="course-link">Learn More →</a>
+            </div>
+
+            <div class="glass-card card">
+                <h3 class="card-title">Udemy</h3>
+                <p class="card-text">Practical web development courses</p>
+                <a href="https://udemy.com" target="_blank" class="course-link">Learn More →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Hot Beans Web</h3>
+                <p>Building the future of web development, one developer at a time.</p>
+                <p>Made by <span class="credit">Zulkernain Haider</span></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📧 careers@hotbeansweb.com</p>
+                <p>📞 +44 (0) 20 1234 5678</p>
+                <p>📍 London, United Kingdom</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#about">About Us</a>
+                <a href="#jobs">Open Positions</a>
+                <a href="#apply">Apply Now</a>
+                <a href="#courses">Learning Resources</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Hot Beans Web. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- AI Chatbox -->
+    <div class="chatbox-container">
+        <div id="chatbox" class="chatbox">
+            <div class="chat-header">
+                <h3>Hot Beans Web Assistant</h3>
+                <button class="close-btn" onclick="toggleChat()">&times;</button>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    Hello! I'm the Hot Beans Web assistant. How can I help you today?
+                </div>
+            </div>
+            
+            <div class="chat-input-container">
+                <input type="text" class="chat-input" id="chatInput" 
+                       placeholder="Ask about jobs, requirements..." 
+                       onkeypress="handleChatKeypress(event)">
+                <button class="send-btn" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+        
+        <button class="chat-toggle" onclick="toggleChat()">💬</button>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Form submission handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your application! We will review it and get back to you soon.');
+            event.target.reset();
+        }
+
+        // Chatbox functionality
+        let chatOpen = false;
+
+        function toggleChat() {
+            const chatbox = document.getElementById('chatbox');
+            chatOpen = !chatOpen;
+            chatbox.classList.toggle('active', chatOpen);
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            if (!message) return;
+
+            addMessage(message, 'user');
+            input.value = '';
+
+            // Bot response logic
+            setTimeout(() => {
+                const response = getBotResponse(message.toLowerCase());
+                addMessage(response, 'bot');
+            }, 500);
+        }
+
+        function addMessage(text, type) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            messageDiv.textContent = text;
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function getBotResponse(message) {
+            const responses = {
+                'hello': 'Hi there! Welcome to Hot Beans Web. We\'re excited to help you start your web development career!',
+                'jobs': 'We currently have openings for Junior Web Developer, Front-end Developer, and Full-stack Developer positions. Check out our job specifications section above!',
+                'requirements': 'We look for candidates with HTML, CSS, JavaScript knowledge, and a passion for learning. Previous project experience or course completion is preferred.',
+                'apply': 'You can apply using the application form on this page. Make sure to include your portfolio and any relevant projects!',
+                'courses': 'We recommend checking out our course links section for great web development learning resources.',
+                'company': 'Hot Beans Web is a dynamic web development company focused on training the next generation of developers. We believe in hands-on learning and career growth.',
+                'salary': 'Our salaries range from £25,000-£30,000 for Junior positions, £30,000-£40,000 for Frontend roles, and £40,000-£55,000 for Full-stack positions.',
+                'benefits': 'We offer competitive salaries, mentorship programs, real project experience, flexible working hours, and career advancement opportunities.',
+                'contact': 'You can reach us at careers@hotbeansweb.com or call +44 (0) 20 1234 5678. We\'re located in London, UK.'
+            };
+
+            for (const [keyword, response] of Object.entries(responses)) {
+                if (message.includes(keyword)) {
+                    return response;
+                }
+            }
+
+            return 'That\'s a great question! For specific inquiries, please use our application form or contact us directly. I can help with information about jobs, requirements, courses, or our company.';
+        }
+
+        function handleChatKeypress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        // Navigation link event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = this.getAttribute('href').substring(1);
+                    scrollToSection(target);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
